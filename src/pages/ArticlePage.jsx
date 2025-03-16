@@ -4,6 +4,7 @@ import { NotFoundPage } from "./NotFoundPage";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { CommentsList } from "../components/CommentsList";
+import { AddCommentForm } from "../components/AddCommentForm";
 
 const DEFAULT_URL = "http://localhost:8000";
 
@@ -52,9 +53,15 @@ export function ArticlePage() {
 			))}
 			<button
 				onClick={addUpvote}
-				className="mx-0 border-2 px-3 rounded-full">
+				className="mx-0 rounded-xl border-2 py-2 px-3 bg-black text-white">
 				Upvote
 			</button>
+			<AddCommentForm
+				articleId={articleId}
+				onArticleUpdated={(updatedArticle) =>
+					setArticleInfo(updatedArticle)
+				}
+			/>
 			<CommentsList comments={articleInfo.comments} />
 		</div>
 	);
