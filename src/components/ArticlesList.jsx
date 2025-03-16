@@ -8,8 +8,7 @@ export function ArticlesList({ articles, articleListType }) {
 			{articles.map((article) => (
 				<Link
 					key={article.name}
-					to={article.name}
-				>
+					to={article.name}>
 					<p className="text-xl text-left">{article.title}</p>
 					<p className="text-left">
 						{article.content[0].substring(0, 150)}...
